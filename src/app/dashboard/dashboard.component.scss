@@ -1,0 +1,9 @@
+$dashboardLinkColor: #333333;
+
+a {
+    color: rgba($dashboardLinkColor, .6);
+
+    &:hover {
+        color: rgba($dashboardLinkColor, 1);
+    }
+}

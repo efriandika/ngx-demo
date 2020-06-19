@@ -6,7 +6,7 @@ const routes: Routes = [
     // Default Routing
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // => Redirect "/" to "/dashboard"
 
-    // Call a Component via Routing
+    // Call a Component via the Routing directly
     { path: 'dashboard', component: DashboardComponent },
 
     // Call Component via Lazy Load Modules
