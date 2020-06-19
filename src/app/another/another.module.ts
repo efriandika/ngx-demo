@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoComponent } from './todo/todo.component';
-import { TodoArchiveComponent } from './todo-archive/todo-archive.component';
-import { TodoRoutingModule } from './todo-routing.module';
+import { HelloComponent } from './hello/hello.component';
+import { AnotherRoutingModule } from './another-routing.module';
 
 /**
  * TO handle to do features
@@ -11,16 +10,15 @@ import { TodoRoutingModule } from './todo-routing.module';
 @NgModule({
     declarations: [
         // Every component in this module scope should be registered
-        TodoComponent,
-        TodoArchiveComponent
+        HelloComponent
     ],
     imports: [
-        // Angular Modules
+        // Angular Required Modules
         CommonModule,
 
         // Routing Modules
-        TodoRoutingModule
+        AnotherRoutingModule
     ]
 })
-export class TodoModule {
+export class AnotherModule {
 }
