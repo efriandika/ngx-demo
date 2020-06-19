@@ -1,1 +1,57 @@
-<p>todo works!</p>
+<div class="row justify-content-center">
+    <div class="col-md-4">
+
+        <!-- Form -->
+        <div class="mb-5">
+            <form [formGroup]="form" (submit)="handleSubmit()">
+                <div class="form-group">
+                    <label for="task">Task</label>
+                    <input type="text" class="form-control" id="task" [formControlName]="'task'">
+
+                    <!--
+                    Show validation message
+                    PS: There are a lot of library on the internet to make this easier
+                    -->
+                    <small *ngIf="this.form.get('task').invalid && this.form.get('task').dirty" class="form-text text-danger">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="target">Target</label>
+                    <input type="text" class="form-control" id="target" [formControlName]="'target'">
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="!this.form.valid">Submit</button>
+            </form>
+        </div>
+
+        <div class="text-uppercase small font-weight-bold mt-3">Form Debugger:</div>
+        <!--
+        This is a angular Pipe String interpolation example
+        For more info: https://angular.io/guide/pipes
+        -->
+        <pre class="bg-dark text-white">
+            <code>
+                {{ this.form.value | json }}
+            </code>
+        </pre>
+    </div>
+
+    <!--
+    Display The To Do List Array
+    It uses Structural Directives: *ngFor, *ngIf, etc..
+    For more info https://angular.io/guide/structural-directives
+    -->
+    <div class="col-md-4">
+        <div *ngIf="todoList.length === 0">You don't have to do list yet</div>
+
+        <ng-container *ngIf="todoList.length > 0">
+            <div class="mb-1">My Todo List:</div>
+            <ul class="list-group">
+                <li *ngFor="let item of todoList; let i = index" class="list-group-item">
+                    <app-todo-detail [item]="item" (remove)="removeTask($event)" [index]="i"></app-todo-detail>
+                </li>
+            </ul>
+        </ng-container>
+    </div>
+</div>

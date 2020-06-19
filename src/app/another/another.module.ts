@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HelloComponent } from './hello/hello.component';
 import { AnotherRoutingModule } from './another-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /**
  * TO handle to do features
@@ -15,6 +16,7 @@ import { AnotherRoutingModule } from './another-routing.module';
     imports: [
         // Angular Required Modules
         CommonModule,
+        ReactiveFormsModule,
 
         // Routing Modules
         AnotherRoutingModule
